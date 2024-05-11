@@ -1,0 +1,24 @@
+<div class="card__todo">
+    <div *ngIf="!isEdit" class="card__todo__name">
+        {{this.todoName}}
+    </div>
+
+    <div *ngIf="!isEdit" class="card__todo__edit">
+        <button class="card__edit__button" (click)="this.toggleedit()">Edit</button>
+    </div>
+
+    <div *ngIf="!isEdit" class="card__todo__delete">
+        <button class="card__delete__button" (click)="this.todoService.deleteTodo(this.id)">Delete</button>
+    </div>
+    <div *ngIf="isEdit"  class="card__todo__name">
+        <input id={{this.id}} type="text" value={{this.todoName}}/>
+    </div>
+
+    <div *ngIf="isEdit"  class="card__todo__edit">
+        <button class="card__edit__button" (click)="this.save()">Save</button>
+    </div>
+
+    <div *ngIf="isEdit"  class="card__todo__delete">
+        <button class="card__delete__button"(click)="this.toggleedit()" >Cancel</button>
+    </div>
+</div>
